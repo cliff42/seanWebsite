@@ -16,7 +16,7 @@
         
         .topnav a {
             float: left;
-            color: darkgreen;
+            color: lightcoral;
             text-align: center;
             padding: 14px 16px;
             text-decoration: none;
@@ -32,8 +32,13 @@
             background-color: #4CAF50;
             color: white;
         }
+        
+        .mySlides {
+            display: none;
+        }
+        
     </style>
-
+        
     <body>
         
         <div class="topnav">
@@ -45,7 +50,16 @@
 
         <h1 style="padding-left:16px">Art</h1>
         
-            
+        <div id="content">
+    
+        <img class="mySlides" src="assets/seanTestGreen.png" style="width:100%">
+        <img class="mySlides" src="assets/seanTestRed.png" style="width:100%">
+
+        <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+            <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
+        </div>
+        
+    <script type="application/javascript" src="app.js"></script>
     </body>
     
 </html>
