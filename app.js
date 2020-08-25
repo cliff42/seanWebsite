@@ -15,3 +15,11 @@ function showDivs(n) {
   }
   x[slideIndex-1].style.display = "block";  
 }
+
+function openNav() {
+    document.getElementById("mainNav").style.width = "250px";
+}
+            
+function closeNav() {
+    document.getElementById("mainNav").style.width = "0";
+}
