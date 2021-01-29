@@ -47,7 +47,7 @@ h2 {
 }
 
 .title {
-  padding: 50px;
+  margin-bottom: 50px;
 }
 
 .channelLink {
