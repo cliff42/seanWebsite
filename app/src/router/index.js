@@ -1,9 +1,11 @@
 import Vue from 'vue'
+import VueYoutube from 'vue-youtube'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
+import Films from '../views/Films.vue'
 import Bots from '../views/Bots.vue'
-import Comments from '../views/Comments.vue'
 
+Vue.use(VueYoutube)
 Vue.use(VueRouter)
 
 const routes = [
@@ -19,8 +21,8 @@ const routes = [
   },
   {
     path: '/films',
-    name: 'Comments',
-    component: Comments
+    name: 'Films',
+    component: Films
   },
   {
     path: '/contact',

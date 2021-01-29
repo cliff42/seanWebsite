@@ -1,16 +1,8 @@
 <template>
   <div class="menu">
-    <h2>Comments</h2>
-    <label class="refresh">
-      <b-button variant="outline-primary" @click="onRefresh">Refresh</b-button>
-    </label>
-    <label class="filter-hate">
-      <b-form-checkbox variant="outline-primary" @change="filterHate" aria-checked="false">Only Hate Speech Filter</b-form-checkbox>
-    </label>
-    <div class="table">
-      <b-table striped hover bordered :items="comments" :fields="fields">
-      </b-table>
-    </div>
+    <h2 class="title">Films</h2>
+    <!-- <youtube :video-id="videoId0" :player-vars="playerVars" @playing="playing"></youtube> -->
+    <youtube :video-id="videoId0" @playing="playing"></youtube>
   </div>
 </template>
 
@@ -24,6 +16,12 @@ export default {
     const comments = ref([]);
     const fields = ref([]);
     const hateOnly = ref(false);
+    const videoId0 = ref('n3pmrBaJSgA');
+    // const playerVars = ref({});
+
+    // playerVars = {
+    //     autoplay: 1
+    // }
 
     fields.value = [
       {
@@ -90,6 +88,8 @@ export default {
     return {
       comments,
       fields,
+      videoId0,
+      // playerVars,
       hateOnly,
       onRefresh,
       filterHate,
@@ -111,22 +111,7 @@ h2 {
   justify-content: center;
 }
 
-.table {
-  margin-top:0px;
-}
-
-.refresh {
-  float: right;
-  margin: 10px;
-  margin-right: 8px;
-  margin-left: 1220px;
-}
-
-.filter-hate {
-  float: right;
-  margin: 10px;
-  margin-top:0px;
-  margin-right: 20px;
-  margin-left: 1110px;
+.title {
+  padding: 50px;
 }
 </style>
