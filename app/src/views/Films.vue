@@ -12,7 +12,6 @@
 
 <script>
 import { ref } from '@vue/composition-api';
-import '../gapis.js';
 
 export default {
   name: 'Films',

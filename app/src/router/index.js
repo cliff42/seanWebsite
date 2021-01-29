@@ -4,7 +4,9 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Films from '../views/Films.vue'
 import Bots from '../views/Bots.vue'
+import gapis from '../gapis.js'
 
+Vue.use(gapis)
 Vue.use(VueYoutube)
 Vue.use(VueRouter)
 
