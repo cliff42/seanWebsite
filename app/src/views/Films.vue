@@ -3,12 +3,17 @@
     <h2 class="title">Films</h2>
     <!-- <youtube :video-id="videoId0" :player-vars="playerVars" @playing="playing"></youtube> -->
     <youtube :video-id="videoId0" @playing="playing"></youtube>
+    <!-- <iframe src="http://www.youtube.com/embed/?listType=user_uploads&list=YOURCHANNELNAME" width="480" height="400"></iframe> -->
+    <div class="channelLink">
+      <div class="g-ytsubscribe" data-channelid="UCrhHo4x64Ong7FXdejiEf9Q" data-layout="full" data-theme="default" data-count="default"></div>
+    </div>
   </div>
 </template>
 
 <script>
 import { ref } from '@vue/composition-api';
 import axios from 'axios';
+import '../gapis.js';
 
 export default {
   name: 'Comments',
@@ -112,6 +117,10 @@ h2 {
 }
 
 .title {
+  padding: 50px;
+}
+
+.channelLink {
   padding: 50px;
 }
 </style>
