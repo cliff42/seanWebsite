@@ -1,9 +1,9 @@
 import Vue from 'vue'
 import VueYoutube from 'vue-youtube'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+import Contact from '../views/Contact.vue'
 import Films from '../views/Films.vue'
-import Bots from '../views/Bots.vue'
+import Artwork from '../views/Artwork.vue'
 import gapis from '../gapis.js'
 
 Vue.use(gapis)
@@ -14,12 +14,12 @@ const routes = [
   {
     path: '/',
     name: 'Home',
-    component: Home
+    component: Artwork
   },
   {
     path: '/artwork',
-    name: 'Bots',
-    component: Bots
+    name: 'Artwork',
+    component: Artwork
   },
   {
     path: '/films',
@@ -28,8 +28,8 @@ const routes = [
   },
   {
     path: '/contact',
-    name: 'Home',
-    component: Home
+    name: 'Contact',
+    component: Contact
   }
 ]
 

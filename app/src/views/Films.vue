@@ -16,8 +16,10 @@ import { ref } from '@vue/composition-api';
 export default {
   name: 'Films',
   setup() {
-    const videoId0 = ref('n3pmrBaJSgA');
+    const videoId0 = 'n3pmrBaJSgA'
+    const videoId1 = 'Aeu855db-Co'
     const channelId = ref('UCrhHo4x64Ong7FXdejiEf9Q');
+
     // const playerVars = ref({});
 
     // playerVars = {
@@ -26,6 +28,7 @@ export default {
 
     return {
       videoId0,
+      videoId1,
       channelId,
       // playerVars,
     };

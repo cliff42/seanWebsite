@@ -1,14 +1,18 @@
 <template>
   <div class="menu">
-    <h2>Deploy Bot</h2>
+    <h2>Contact</h2>
     <b-form class="bot-form">
       <b-form-group>
         <b-form-input class="input" type="text" 
-                      placeholder="Bot Name" v-model="name"/>
+                      placeholder="Name" v-model="name"/>
       </b-form-group>
       <b-form-group>
-        <b-form-input class="input" type="text" 
-                      placeholder="Subreddit" v-model="subreddit"/>
+      <b-form-input class="input" type="text" 
+                      placeholder="Subject" v-model="subject"/>
+      </b-form-group>
+      <b-form-group>
+        <b-form-input class="input" id="message-form" type="text" 
+                      placeholder="Message" v-model="mainBody"/>
       </b-form-group>
       <!-- <b-form-group class="checkbox">
           <b-form-checkbox v-model="optionSpeech" class="check">
@@ -19,7 +23,7 @@
           </b-form-checkbox>
       </b-form-group> -->
       <label class="submit">
-        <b-button variant="outline-primary" @click="onSubmit">Deploy</b-button>
+        <b-button variant="outline-primary" @click="onSubmit">Send</b-button>
       </label>
       <h5>{{message}}</h5>
     </b-form>
@@ -95,5 +99,10 @@ h2 {
 .check {
   float: left;
   margin: 4px;
+}
+
+#message-form {
+  height: 140px;
+  text-align: top;
 }
 </style>
