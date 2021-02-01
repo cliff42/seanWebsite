@@ -11,8 +11,14 @@
                       placeholder="Subject" v-model="subject"/>
       </b-form-group>
       <b-form-group>
-        <b-form-input class="input" id="message-form" type="text" 
-                      placeholder="Message" v-model="mainBody"/>
+        <b-form-textarea
+        class="input"
+        id="textarea-rows"
+        placeholder="Message" 
+        v-model="mainBody"
+        rows="8"
+        no-resize>
+        </b-form-textarea>
       </b-form-group>
       <!-- <b-form-group class="checkbox">
           <b-form-checkbox v-model="optionSpeech" class="check">
@@ -101,8 +107,4 @@ h2 {
   margin: 4px;
 }
 
-#message-form {
-  height: 140px;
-  text-align: top;
-}
 </style>
