@@ -56,7 +56,7 @@ export default {
     async function onSubmit() {
 
 
-      //TODO: Get Correct Template Info From Sean - From this website: https://dashboard.emailjs.com/sign-in
+      //TODO: Get Correct Template Info From Sean - From this website: https://dashboard.emailjs.com/sign-in and https://www.freecodecamp.org/news/send-emails-from-your-vue-application/
       try {
         emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', e.target,
         'YOUR_USER_ID', {
