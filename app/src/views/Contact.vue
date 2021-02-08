@@ -7,8 +7,12 @@
                       placeholder="Name" v-model="name"/>
       </b-form-group>
       <b-form-group>
-      <b-form-input class="input" type="text" 
-                      placeholder="Subject" v-model="subject"/>
+        <b-form-input 
+          type="email" 
+          v-model="email"
+          name="email"
+          placeholder="Your Email"
+        />
       </b-form-group>
       <b-form-group>
         <b-form-textarea
@@ -39,41 +43,40 @@
 <script>
 import { ref } from '@vue/composition-api';
 import axios from 'axios';
+import emailjs from 'emailjs-com';
 
 export default {
   name: 'Home',
   setup() {
     const name = ref('');
-    const subreddit = ref('');
-    const optionSpeech = ref(false);
-    const optionNews = ref(false);
+    const email = ref('');
+    const sendEmail = ref('');
     const message = ref('');
 
     async function onSubmit() {
 
-      var formData = {
-        "name": name.value,
-        "subreddit": subreddit.value,
-        "hateSpeech": optionSpeech.value,
-        "fakeNews": optionNews.value,
-      }
 
-      console.log(formData);
-
+      //TODO: Get Correct Template Info From Sean - From this website: https://dashboard.emailjs.com/sign-in
       try {
-        await axios.post('http://localhost:4000/postBot', formData);
-        message.value = 'Bot Created!';
-      } catch (err) {
-        console.log(err);
-        message.value = err;
+        emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', e.target,
+        'YOUR_USER_ID', {
+          name: this.name,
+          email: this.email,
+          message: this.message
+        })
+
+      } catch(error) {
+          console.log({error})
       }
+      // Reset form field
+      this.name = ''
+      this.email = ''
+      this.message = ''
     };
 
     return {
       name,
-      subreddit,
-      optionSpeech,
-      optionNews,
+      email,
       onSubmit,
       message,
     };
