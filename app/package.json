@@ -17,6 +17,7 @@
     "vue": "^2.6.11",
     "vue-google-api": "^0.2.0",
     "vue-router": "^3.2.0",
+    "vue-silentbox": "^2.4.2",
     "vue-trend-chart": "^0.15.3",
     "vue-youtube": "^1.4.0"
   },

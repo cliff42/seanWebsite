@@ -1,6 +1,7 @@
 <template>
   <div class="art">
-    <h2>Artwork</h2>
+    <h2 class="title">Artwork</h2>
+    <silent-box :gallery="images"></silent-box>
   </div>
 </template>
 
@@ -8,50 +9,37 @@
 import { ref } from '@vue/composition-api';
 import axios from 'axios';
 
-export default {
-  name: 'Bots',
-  setup() {
-    const bots = ref([]);
-    const modalInfo= ref([]);
-    const modalSub = ref('');
-    const modalName = ref('');
-    const fields = ref([]);
-    const newFields = ref([]);
-    // const newFakeNews = ref(false);
-    // const newHateSpeech = ref(false);
+// images
+import img1 from "@/./assets/seanTestGreen.png";
+import img2 from "@/./assets/seanTestBlue.jpg";
+import img3 from "@/./assets/seanTestRed.png";
 
-    fields.value = [
+export default {
+  name: 'Artwork',
+  setup() {
+    const images = ref([
       {
-        key: 'name',
-        label: 'Bot name',
-        sortable: true
+        src: img1,
+        description: 'Sean Test Green',
+        thumbnailWidth: '260px',
+        thumbnailHeight: '260px'
       },
       {
-        key: 'subreddit',
-        sortable: true
+        src: img2,
+        description: 'Sean Test Blue',
+        thumbnailWidth: '260px',
+        thumbnailHeight: '260px'
       },
       {
-        key: 'actions',
-        label: 'Actions',
-        sortable: false,
-        thClass: 'actions-col',
-        tdClass: 'actions-col'
+        src: img3,
+        description: 'Sean Test Red',
+        thumbnailWidth: '260px',
+        thumbnailHeight: '260px'
       }
-    ];
+    ]);
 
     return {
-      bots,
-      modalSub,
-      modalName,
-      modalInfo,
-      // newFakeNews,
-      // newHateSpeech,
-      fields,
-      newFields,
-      handleModal,
-      getBots,
-      deleteBot,
-      editBot,
+      images,
     };
   }
 }
@@ -68,6 +56,10 @@ export default {
   padding: 50px;
   align-items: center;
   justify-content: center;
+}
+
+.title {
+  margin-bottom: 50px;
 }
 
 </style>
