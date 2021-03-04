@@ -19,6 +19,8 @@ export default {
     const videoId0 = 'prYReYk4f3k'
     const videoId1 = 'Aeu855db-Co'
     const channelId = ref('UCrhHo4x64Ong7FXdejiEf9Q');
+
+    // videos 
     const videoList = [
       "https://www.youtube.com/watch?v=a0HPeuLBkN0&ab_channel=SeanKinsella",
       "https://www.youtube.com/watch?v=prYReYk4f3k&ab_channel=SeanKinsella",
@@ -29,6 +31,7 @@ export default {
       "https://www.youtube.com/watch?v=T9thX8V9TA8&ab_channel=SeanKinsella",
       "https://www.youtube.com/watch?v=oRILuKhZnuQ&ab_channel=SeanKinsella"
     ];
+    
     const videos = ref([
       {
         src: videoList[0],
