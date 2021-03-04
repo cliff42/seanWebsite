@@ -1,34 +1,33 @@
 <template>
   <div class="menu">
     <h2>Contact</h2>
-    <b-form class="bot-form">
-      <b-form-group>
-        <b-form-input class="input" type="text" 
-                      placeholder="Name" v-model="name"/>
-      </b-form-group>
-      <b-form-group>
-        <b-form-input 
+    <div class="container">
+      <form @submit.prevent="onSubmit">
+        <label>Name</label>
+        <input 
+          type="text" 
+          v-model="name"
+          name="name"
+          placeholder="Name"
+        >
+        <label>Email</label>
+        <input 
           type="email" 
           v-model="email"
           name="email"
           placeholder="Your Email"
-        />
-      </b-form-group>
-      <b-form-group>
-        <b-form-textarea
-        class="input"
-        id="textarea-rows"
-        placeholder="Message" 
-        v-model="mainBody"
-        rows="8"
-        no-resize>
-        </b-form-textarea>
-      </b-form-group>
-      <label class="submit">
-        <b-button variant="outline-primary" @click="onSubmit">Send</b-button>
-      </label>
-      <h5>{{message}}</h5>
-    </b-form>
+          >
+        <label>Message</label>
+        <textarea 
+          name="message"
+          v-model="message"
+          cols="30" rows="5"
+          placeholder="Message">
+        </textarea>
+        <input type="submit" value="Send">
+        <h5 class="sentMessage">{{sentMessage}}</h5>
+      </form>
+    </div>
   </div>
 </template>
 
@@ -43,21 +42,20 @@ export default {
     const email = ref('');
     // const sendEmail = ref('');
     const message = ref('');
+    let sentMessage = ref('');
 
-    async function onSubmit() {
-
-
+    function onSubmit(e) {
       //TODO: Get Correct Template Info From Sean - From this website: https://dashboard.emailjs.com/sign-in and https://www.freecodecamp.org/news/send-emails-from-your-vue-application/
       try {
-        emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', 'e.target',
-        'YOUR_USER_ID', {
-          name: this.name,
-          email: this.email,
-          message: this.message
+        emailjs.sendForm('service_xksrv36', 'template_0eq85al', e.target, 'user_NmUBaYwG8JB9jdqCJ9Vcc', {
+          name: name,
+          email: email,
+          message: message
         })
+        sentMessage = 'Message Sent!';
 
       } catch(error) {
-          console.log({error})
+          sentMessage = 'error';
       }
       // Reset form field
       this.name = ''
@@ -68,8 +66,9 @@ export default {
     return {
       name,
       email,
-      onSubmit,
       message,
+      onSubmit,
+      sentMessage
     };
   }
 }
@@ -88,7 +87,7 @@ h2 {
   flex-direction: column;
 }
 
-.bot-form {
+.contact-form {
   width: 400px;
   display: flex;
   flex-direction: column;
@@ -99,6 +98,49 @@ h2 {
 .check {
   float: left;
   margin: 4px;
+}
+
+.sentMessage {
+  margin-top: 25px;
+}
+
+/* From: https://github.com/Seybel/vue-emailjs-demo/blob/main/src/components/ContactForm.vue */
+
+* {box-sizing: border-box;}
+
+label {
+  float: left;
+}
+input[type=text], [type=email], textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+input[type=submit] {
+  background-color: #FF5700;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+input[type=submit]:hover {
+  background-color: #dd8d41;
+}
+.container {
+  display: block;
+  margin:auto;
+  margin-top:40px;
+  text-align: center;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+  width: 50%;
 }
 
 </style>
