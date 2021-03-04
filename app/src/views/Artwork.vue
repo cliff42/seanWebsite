@@ -1,7 +1,7 @@
 <template>
   <div class="art">
     <h2 class="title">Artwork</h2>
-    <silent-box :gallery="images"></silent-box>
+    <silent-box :gallery="images" class="gallery"></silent-box>
   </div>
 </template>
 
@@ -62,4 +62,7 @@ export default {
   margin-bottom: 50px;
 }
 
+.silentbox-item {
+  padding: 20px;
+}
 </style>
